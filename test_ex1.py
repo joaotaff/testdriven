@@ -48,3 +48,8 @@ def test_7():
     ref = 2
     with pytest.raises(TypeError, match=r"Reference date must be a string"):
         ex1_.ex1(birth, ref)
+
+def test_8():
+    birth = "01/01/2000"
+    ref = "01/01/2000"
+    assert ex1_.ex1(birth, ref) == 0
