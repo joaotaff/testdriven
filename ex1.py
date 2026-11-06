@@ -2,6 +2,10 @@ import datetime as dt
 import re
 
 def ex1(birth, ref):
+    if not isinstance(birth, str):
+        raise TypeError("Birthdate must be a string")
+    if not isinstance(ref, str):
+        raise TypeError("Reference date must be a string")
     if not re.match(r"^\d{2}/\d{2}/\d{4}$", birth):
         raise ValueError("Invalid birthdate format")
     if not re.match(r"^\d{2}/\d{2}/\d{4}$", ref):

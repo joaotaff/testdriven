@@ -36,3 +36,15 @@ def test_5():
     ref = "apple"
     with pytest.raises(ValueError, match=r"Invalid reference date format"):
         ex1_.ex1(birth, ref)
+
+def test_6():
+    birth = 2
+    ref = "01/01/2026"
+    with pytest.raises(TypeError, match=r"Birthdate must be a string"):
+        ex1_.ex1(birth, ref)
+
+def test_7():
+    birth = "01/01/2000"
+    ref = 2
+    with pytest.raises(TypeError, match=r"Reference date must be a string"):
+        ex1_.ex1(birth, ref)
