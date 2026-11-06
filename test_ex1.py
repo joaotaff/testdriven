@@ -18,3 +18,9 @@ def test_2():
     birth = "29/02/2000"
     ref = "01/03/2026"
     assert ex1_.ex1(birth, ref) == 26
+
+def test_3():
+    birth = "01/01/2000"
+    ref = "01/01/1999"
+    with pytest.raises(ValueError):
+        ex1_.ex1(birth, ref)
