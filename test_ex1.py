@@ -22,5 +22,17 @@ def test_2():
 def test_3():
     birth = "01/01/2000"
     ref = "01/01/1999"
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match=r".* after reference date.*"):
+        ex1_.ex1(birth, ref)
+
+def test_4():
+    birth = "apple"
+    ref = "01/01/2026"
+    with pytest.raises(ValueError, match=r"Invalid birthdate format"):
+        ex1_.ex1(birth, ref)
+
+def test_5():
+    birth = "01/01/2000"
+    ref = "apple"
+    with pytest.raises(ValueError, match=r"Invalid reference date format"):
         ex1_.ex1(birth, ref)
