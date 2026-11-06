@@ -53,3 +53,15 @@ def test_8():
     birth = "01/01/2000"
     ref = "01/01/2000"
     assert ex1_.ex1(birth, ref) == 0
+
+def test_9():
+    birth = "32/01/2000"
+    ref = "01/01/2001"
+    with pytest.raises(ValueError):
+        ex1_.ex1(birth, ref)
+
+def test_10():
+    birth = "01/13/2000"
+    ref = "01/01/2001"
+    with pytest.raises(ValueError):
+        ex1_.ex1(birth, ref)
